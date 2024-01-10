@@ -1,0 +1,21 @@
+spring:
+  kafka:
+    consumer:
+      group-id: group1
+      bootstrap-servers: <your-bootstrap-servers>  # Kafka bootstrap servers
+  consumer:
+    properties:
+      group-id: group2
+      bootstrap-servers: <your-bootstrap-servers>
+
+kafka:
+  listener:
+    container:
+      group1:
+        type: concurrency  # Can be "single" or "concurrency"
+        concurrency: 3      # Number of listener threads
+      group2:
+        type: concurrency
+        concurrency: 3
+
+
